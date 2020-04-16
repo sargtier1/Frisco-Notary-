@@ -1,7 +1,5 @@
 {
   "build": {
-    "env": {
-      "PORT_SG": "@port_sg"
-    }
+    "env": {}
   }
 }

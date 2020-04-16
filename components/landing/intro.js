@@ -13,7 +13,7 @@ export default function Intro() {
               alignItems: 'center',
             }}
           >
-            <img className='intro-img' src='./assets/map_SVG.svg' />
+            <img className='intro-img' src='./assets/Map_SVG.svg' />
           </Col>
           <Spacer y={2} />
           <Col
