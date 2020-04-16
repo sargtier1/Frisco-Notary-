@@ -6,12 +6,14 @@ import PostBody from '../../components/services/body'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import markdownToHtml from '../../lib/html'
 import Layout from '../../components/layout'
+import Hero from '../../components/hero'
 
 export default function Post({ post }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+  console.log(post.coverImage)
   return (
     <>
       {router.isFallback ? (
@@ -23,13 +25,10 @@ export default function Post({ post }) {
           <Head>
             <meta property='og:image' content={post.coverImage} />
           </Head>
+          <Hero title={post.title} description={post.excerpt} />
           <Row justify='center'>
             <Col>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-              />
+              <PostHeader coverImage={post.coverImage} />
             </Col>
           </Row>
           <Spacer y={1} />

@@ -13,14 +13,7 @@ export default function Intro() {
               alignItems: 'center',
             }}
           >
-            <h1 className='title'>Who is N-Fusion Solutions?</h1>
-            <h3 className='intro-description'>
-              N-Fusion Solutions is the people's champion in all things internet
-              marketing. We specialize in creating stunning websites and
-              formalizing comprehensive marketing strategies that keep the core
-              values of your company intact, all while increasing your bottom
-              line.
-            </h3>
+            <img className='intro-img' src='./assets/map_SVG.svg' />
           </Col>
           <Spacer y={2} />
           <Col
@@ -31,12 +24,29 @@ export default function Intro() {
               alignItems: 'center',
             }}
           >
-            <Image src='./assets/champion.svg' width='100%' height='auto' />
+            <h2 className='title'>What is Frisco Notary?</h2>
+            <h5 className='intro-description'>
+              In 2005, Frisco “on the go” Notary Service began as a concept to
+              deliver niche services in Collin County that included mobile
+              notary and loan closing services. Little did we know at the time
+              our business would experience tremendous growth right along-side
+              of the City of Frisco. Our business has grown so much we began
+              offering services throughout the Dallas Metroplex. Our service
+              area now includes Collin, Denton, Dallas, Grayson, and Cooke
+              County.
+            </h5>
           </Col>
         </div>
       </Row>
       <style jsx>
         {`
+          .title {
+            width: 90%;
+          }
+          .intro-img {
+            width: 100%;
+            height: auto;
+          }
           .intro-wrapper {
             background: whitesmoke;
             display: flex;
@@ -45,7 +55,8 @@ export default function Intro() {
             min-height: 90vh;
           }
           .intro-description {
-            line-height: 2;
+            line-height: 2.5;
+            width: 90%;
           }
           a {
             cursor: text;
@@ -59,13 +70,9 @@ export default function Intro() {
               flex-direction: column;
             }
           }
-          @media (max-width: 840px) {
-            .wrapper {
-              display: flex;
-              flex-direction: column;
-            }
-            .intro-wrapper {
-              flex-direction: column;
+          @media (max-width: 600px) {
+            .intro-description {
+              line-height: 2;
             }
           }
         `}

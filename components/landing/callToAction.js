@@ -9,7 +9,7 @@ export default function CallToAction() {
       <Row justify='center' align='middle'>
         <div className='call-to-wrapper'>
           <Button type='success' shadow onClick={() => router.push('/contact')}>
-            Reach out now
+            Book an appointment
           </Button>
         </div>
       </Row>
@@ -23,12 +23,6 @@ export default function CallToAction() {
             width: 100%;
             align-items: center;
             justify-content: center;
-            background-image: radial-gradient(#ddd 1px, transparent 0),
-              radial-gradient(#ddd 1px, transparent 0);
-            background-position: 0 0, 25px 25px;
-            background-attachment: fixed;
-            background-size: 50px 50px;
-            overflow-x: hidden;
           }
           .call-to-description {
             line-height: 2;

@@ -61,14 +61,14 @@ export default function Header() {
   const shadowStyle = shouldShowShadow ? 'shadow' : ''
   const hiddenStyle = shouldHideHeader ? 'hidden' : ''
   const shadowTextDesktop = shouldShowShadow ? 'show' : 'hidden'
-  const shadowText = shouldShowShadow ? 'grey' : 'white'
+  const shadowText = shouldShowShadow ? 'grey' : 'black'
 
   const vis = {}
 
   const nonVis = {
     background: 'transparent',
-    borderColor: 'white',
-    color: 'white',
+    borderColor: 'black',
+    color: 'black',
   }
 
   const shadowBtn = shouldShowShadow ? vis : nonVis
@@ -143,9 +143,6 @@ export default function Header() {
           >
             Contact
           </ButtonDropdown.Item>
-          <ButtonDropdown.Item>
-            <ToggleTheme />
-          </ButtonDropdown.Item>
         </ButtonDropdown>
       </nav>
       <style jsx>{`
@@ -153,7 +150,7 @@ export default function Header() {
           color: grey;
         }
         .hidden {
-          color: white;
+          color: black;
         }
         .section-wrapper {
           display: flex;

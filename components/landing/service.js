@@ -19,7 +19,6 @@ export default function ServiceIntro() {
       <style jsx>
         {`
           .services-wrapper {
-            background: snow;
             display: flex;
             padding: 2rem;
             margin: auto;

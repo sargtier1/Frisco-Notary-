@@ -1,13 +1,12 @@
 import Link from 'next/link'
 import { Display, Text, Spacer } from '@zeit-ui/react'
-import Date from './date'
 
 const PostList = ({ posts }) => {
   return (
     <>
       {posts &&
         posts.map(({ title, slug, date, coverImage }, i) => (
-          <Link key={i} href='/blog/[slug]' as={`/blog/${slug}`}>
+          <Link key={i} href='/services/[slug]' as={`/services/${slug}`}>
             <a className='cards'>
               <Display
                 style={{ maxWidth: '650px' }}

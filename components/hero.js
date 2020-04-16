@@ -1,90 +1,46 @@
+import { useTheme, Row, Col, Text, Divider } from '@zeit-ui/react'
+
 const Hero = ({ title, description, size }) => {
+  const { palette } = useTheme()
+
   return (
-    <div
+    <Row
+      align='middle'
       className='hero'
       style={{
-        width: '100%',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
         minHeight: `${size}vh`,
       }}
     >
-      <div className='hero-container'>
-        <div className='hero-text'>
-          <h1>{title}</h1>
-          <p className='zi-content'>{description}</p>
+      <Col span={24}>
+        <div className='hero-container'>
+          <div className='hero-text'>
+            <Text h1>{title}</Text>
+            <Text p>{description}</Text>
+          </div>
         </div>
-      </div>
+      </Col>
+      <Divider />
       <style jsx>{`
-        .hero {
-          background: radial-gradient(
-            ellipse at center,
-            rgba(73, 155, 234, 1) 0%,
-            rgba(32, 124, 229, 1) 100%
-          );
-          background-color: rgba(73, 155, 234, 1);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          position: relative;
-          padding: 40px 0 80px;
+        .hero-container {
+          text-align: center;
           display: flex;
-          align-items: center;
           justify-content: center;
+          align-items: center;
+          height: 65vh;
         }
         .hero-text {
-          color: White;
+          border-bottom: 3px solid black;
+          padding: 2rem 0 2rem;
+          margin: 2rem 0 2rem;
+          width: 60%;
         }
-        .hero-text h1 {
-          font-size: 5.5rem;
-          font-weight: 300;
-          line-height: 1.5;
-          text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-        .hero-text p {
-          #f8f9fa!important!;
-          font-size: 2.5em;
-          font-weight: 300;
-        }
-        .hero-container {
-          padding: 4em 2em;
-          display: flex;
-          justify-content: left;
-          text-align: left;
-        }
-        @media (max-width: 1025px) {
-          .hero {
-            min-height: 65vh;
-          }
-          .hero-text p {
-            line-height: 1.5;
-          }
-        }
-
-        @media(max-width: 769px) {
-          .hero-text h1 {
-            font-size: 3.5em;
-          }
-          .hero-text p {
-            font-size: 1.6em;
-            line-height: 1.5;
-          }
-        }
-
         @media (max-width: 600px) {
-          .hero {
-            min-height: 45vh;
-          }
-          .hero-text h1 {
-            font-size: 3em;
-          }
-          .hero-text p {
-            font-size: 1.4em;
-            line-height: 2;
+          .hero-text {
+            width: 90%;
           }
         }
       `}</style>
-    </div>
+    </Row>
   )
 }
 

@@ -1,21 +1,22 @@
-import { Spacer } from '@zeit-ui/react'
+import { Spacer, useTheme, Row, Col, Text, Divider } from '@zeit-ui/react'
 
 const Technology = () => {
+  const { palette } = useTheme()
+
   return (
     <section
-      style={{ backgroundColor: `lightblue` }}
+      style={{ backgroundColor: `${palette.successLight}` }}
       className='section-wrapper'
     >
+      <Row gap={4}>
+        <Col span={24}>
+          <Text style={{ color: 'white' }} h2>
+            What We Do
+          </Text>
+          <Divider />
+        </Col>
+      </Row>
       <div className='tech-container'>
-        {markData &&
-          markData.map(({ key, title, description, src }) => (
-            <TechPlack4
-              key={key}
-              title={title}
-              description={description}
-              src={src}
-            />
-          ))}
         {softData &&
           softData.map(({ key, title, description, src }) => (
             <TechPlack4
@@ -27,13 +28,16 @@ const Technology = () => {
           ))}
       </div>
       <style>{`
+        .section-wrapper {
+          padding: 2rem 0;
+        }
         .tech-container {
           min-height: 65vh;
           width: 100%;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-around;
-          background-color: lightblue;
+          background-color: ${palette.successLight};
         }
         @media (max-width: 600px) {
           .tech-container {
@@ -55,11 +59,17 @@ const Technology = () => {
 }
 
 const TechPlack4 = ({ title, description, src }) => {
+  const { palette } = useTheme()
   return (
     <div style={{ borderStyle: 'none' }} className='zi-card pin tech-card'>
       <div className='content-wrapper'>
         <h4>{title}</h4>
-        <img className='logos' src={src} alt={title} />
+        <img
+          style={{ fill: 'white' }}
+          className='logos'
+          src={src}
+          alt={title}
+        />
         <br />
         <p className='description'>{description}</p>
       </div>
@@ -67,7 +77,6 @@ const TechPlack4 = ({ title, description, src }) => {
         .logos {
           width: 50px;
           margin: auto;
-          fill: azure;
         }
         .content-wrapper {
           display: flex;
@@ -82,8 +91,8 @@ const TechPlack4 = ({ title, description, src }) => {
           flex: 0 1 calc(25% - 1em);
           box-sizing: border-box;
           margin: 2rem 0;
-          background-color: lightblue;
-          color: #373737;
+          background-color: ${palette.successLight};
+          color: white;
         }
         .description {
           font-size: 1.2rem;
@@ -110,51 +119,44 @@ const TechPlack4 = ({ title, description, src }) => {
 const softData = [
   {
     key: 1,
-    title: 'Web Design',
-    description: 'Custom Design to bring your business to life online',
+    title: 'Service 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/layout.svg',
   },
   {
     key: 2,
-    title: 'Web Development',
-    description:
-      'Custom solutions for your business, built with best practices',
+    title: 'Service 2',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/code.svg',
   },
   {
-    key: 6,
-    title: 'Web Maintenance',
-    description: 'Web maintenance to proactively keep your site running',
+    key: 3,
+    title: 'Service 3',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/tool.svg',
   },
-]
-
-const markData = [
   {
-    key: 1,
-    title: 'Social Media Marketing',
-    description:
-      'Advertising through various social medias for maximum outreach',
+    key: 4,
+    title: 'Service 4',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/smartphone.svg',
   },
   {
-    key: 2,
-    title: 'Email Marketing',
-    description:
-      'Intuitive, forward thinking email marketing that is results driven',
+    key: 5,
+    title: 'Service 5',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/inbox.svg',
   },
   {
     key: 6,
-    title: 'Content Management',
-    description:
-      'Consistent, eloquent content curated for your business and your clients',
+    title: 'Service 6',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/book-open.svg',
   },
   {
-    key: 5,
-    title: 'S.E.O.',
-    description: 'We know how to optimize your SEO to produce real results',
+    key: 7,
+    title: 'Service 7',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     src: './icons/search.svg',
   },
 ]

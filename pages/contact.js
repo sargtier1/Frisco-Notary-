@@ -5,18 +5,12 @@ import Hero from '../components/hero'
 
 export default function Contact() {
   return (
-    <Layout title='Contact Me'>
+    <Layout title='Contact Frisco Notary'>
       <Hero
-        title='Contact N-Fusion'
-        description='Reach out to see how we can help'
+        title='Contact Frisco Notary'
+        description='Contact us to set up an appointment'
         size='55'
       />
-      <Row gap={2}>
-        <Col span={24}>
-          <h2>Contact Me</h2>
-          <Divider />
-        </Col>
-      </Row>
       <Row justify='center' gap={2}>
         <Col span={24}>
           <ContactForm />

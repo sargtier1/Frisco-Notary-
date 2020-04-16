@@ -12,12 +12,6 @@ export default function ServicesPage({ allPosts }) {
         description='Learn more about how N-Fusion can help your business'
         size='55'
       />
-      <Row gap={2}>
-        <Col span={24}>
-          <h2>Our Services</h2>
-          <Divider />
-        </Col>
-      </Row>
       <Row gap={0}>
         <Col span={24}>
           {allPosts ? (
