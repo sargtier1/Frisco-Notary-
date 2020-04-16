@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { Text, Button, ButtonDropdown, Spacer } from '@zeit-ui/react'
 import ToggleTheme from './toggleTheme'
 import Brand from './brand'
+import { Menu, X } from 'react-feather'
 
 const links = [
   { href: '/', label: 'Home', key: 1 },
@@ -14,6 +15,7 @@ const links = [
 ]
 
 export default function Header() {
+  const [isOpen, setIsOpen] = React.useState(false)
   function useDocumentScrollThrottled(callback) {
     const [, setScrollPosition] = useState(0)
     let previousScrollTop = 0
@@ -80,71 +82,53 @@ export default function Header() {
   }
 
   return (
-    <header className={`${shadowStyle} ${hiddenStyle}`}>
-      <div className='center'>
-        <Link href='/'>
-          <a>
-            <Brand shadowText={shadowText} />
-          </a>
-        </Link>
-      </div>
-      <nav className='btns-wrapper center'>
-        <ul>
-          {links.map(({ key, label, href }) => (
-            <li key={key}>
-              <Link href={href}>
-                <a className={`${shadowTextDesktop}`}>{label}</a>
+    <>
+      <header className={`${shadowStyle} ${hiddenStyle}`}>
+        <div className='center'>
+          <Link href='/'>
+            <a>
+              <Brand shadowText={shadowText} />
+            </a>
+          </Link>
+        </div>
+        <nav className='btns-wrapper center'>
+          <ul>
+            {links.map(({ key, label, href }) => (
+              <li key={key}>
+                <Link href={href}>
+                  <a className={`${shadowTextDesktop}`}>{label}</a>
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href='/contact'>
+                <a>
+                  <Button
+                    style={shadowBtn}
+                    className={`zi-btn auto ghost success`}
+                    type='button'
+                    value='contact'
+                    aria-labelledby='success'
+                  >
+                    Contact Us
+                  </Button>
+                </a>
               </Link>
             </li>
-          ))}
-          <li>
-            <Link href='/contact'>
-              <a>
-                <Button
-                  style={shadowBtn}
-                  className={`zi-btn auto ghost success`}
-                  type='button'
-                  value='contact'
-                  aria-labelledby='success'
-                >
-                  Contact Us
-                </Button>
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <nav className='center btn-wrapper'>
-        <ButtonDropdown>
-          <ButtonDropdown.Item style={shadowBtn} main>
-            Menu
-          </ButtonDropdown.Item>
-
-          <ButtonDropdown.Item
-            onClick={() => {
-              Router.push('/about')
+          </ul>
+        </nav>
+        <nav className='center btn-wrapper'>
+          <a
+            onClick={(e) => {
+              e.preventDefault()
+              setIsOpen(!isOpen)
             }}
           >
-            About
-          </ButtonDropdown.Item>
-
-          <ButtonDropdown.Item
-            onClick={() => {
-              Router.push('/services')
-            }}
-          >
-            Services
-          </ButtonDropdown.Item>
-
-          <ButtonDropdown.Item
-            onClick={() => {
-              Router.push('/contact')
-            }}
-          >
-            Contact
-          </ButtonDropdown.Item>
-        </ButtonDropdown>
-      </nav>
+            {isOpen ? <X size={45} /> : <Menu size={45} />}
+          </a>
+        </nav>
+      </header>
+      {isOpen && <Nav isOpen={isOpen} setIsOpen={setIsOpen} />}
       <style jsx>{`
         .show {
           color: grey;
@@ -218,6 +202,54 @@ export default function Header() {
           }
         }
       `}</style>
-    </header>
+    </>
+  )
+}
+
+const Nav = ({ isOpen, setIsOpen }) => {
+  return (
+    <nav className='nav-wrapper'>
+      <ul>
+        {links.map(({ key, label, href }) => (
+          <li key={key}>
+            <Link href={href}>
+              <a>{label}</a>
+            </Link>
+          </li>
+        ))}
+        <li>
+          <Link href='/contact'>
+            <a>
+              <Button type='button' value='contact' aria-labelledby='success'>
+                Contact Us
+              </Button>
+            </a>
+          </Link>
+        </li>
+      </ul>
+      <style jsx>{`
+        .nav-wrapper {
+          width: 100%;
+          height: 100%;
+          background: lightgrey;
+          position: absolute;
+          z-index: 10;
+          padding-top: 7ch;
+        }
+        ul {
+          display: flex;
+          flex-direction: column;
+        }
+        li {
+          font-size: 2rem;
+        }
+        li a {
+          color: inherit;
+        }
+        li:before {
+          content: '';
+        }
+      `}</style>
+    </nav>
   )
 }
