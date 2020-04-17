@@ -191,6 +191,9 @@ export default function Header() {
         li:before {
           content: none;
         }
+        a {
+          color: inherit;
+        }
         @media (min-width: 840px) {
           .btn-wrapper {
             display: none;
