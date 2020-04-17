@@ -53,7 +53,6 @@ export default function end() {
             display: flex;
             padding: 2rem;
             margin: auto;
-            min-height: 90vh;
           }
           .end-description {
             line-height: 2.5;

@@ -14,8 +14,8 @@ const Hero = ({ title, description, size }) => {
       <Col span={24}>
         <div className='hero-container'>
           <div className='hero-text'>
-            <Text h1>{title}</Text>
-            <Text p>{description}</Text>
+            <h1>{title}</h1>
+            <p>{description}</p>
           </div>
         </div>
       </Col>
@@ -29,11 +29,15 @@ const Hero = ({ title, description, size }) => {
           height: 65vh;
         }
         .hero-text {
-          border-bottom: 3px solid black;
+          border-bottom: 3px solid #162140;
           padding: 2rem 0 2rem;
           margin: 2rem 0 2rem;
           width: 60%;
         }
+        .hero-text h1 p {
+          color: #162140;
+        }
+
         @media (max-width: 600px) {
           .hero-text {
             width: 90%;

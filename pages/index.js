@@ -12,7 +12,7 @@ const Home = () => (
       description='We offer the best in-class expertise and convenience for all your legal and notary needs!'
     />
     <Intro />
-    <Tech />
+    {/* <Tech /> */}
     <End />
     <style jsx>{``}</style>
   </Layout>
